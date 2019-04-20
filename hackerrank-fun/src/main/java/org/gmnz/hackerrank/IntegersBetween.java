@@ -24,4 +24,16 @@ public class IntegersBetween {
      * mantiene non maggiori del primo elemento del secondo insieme.
      * 
      */
+
+    static int getTotalX(int[] a, int[] b) {
+        /*
+         * Write your code here.
+         */
+        // TODO da finire!
+        return -1;
+    }
+
+    public static void main(String[] args) {
+
+    }
 }
