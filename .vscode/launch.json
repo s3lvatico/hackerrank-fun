@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - Decomposition",
+            "request": "launch",
+            "mainClass": "org.gmnz.hackerrank.Decomposition",
+            "projectName": "hackerrank-fun"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - PrimeNumbers",
             "request": "launch",
             "mainClass": "org.gmnz.hackerrank.PrimeNumbers",

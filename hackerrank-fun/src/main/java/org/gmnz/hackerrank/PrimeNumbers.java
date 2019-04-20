@@ -7,7 +7,7 @@ import java.util.Arrays;
  */
 public class PrimeNumbers {
 
-    private int[] findPrimes(int upperBound) {
+    int[] findPrimes(int upperBound) {
         boolean[] sieve = new boolean[upperBound + 1];
         Arrays.fill(sieve, true);
         for (int i = 2; i < sieve.length / 2; i++) {
@@ -50,22 +50,13 @@ public class PrimeNumbers {
         }
     }
 
-    private static void prinIntArray(int[] integers) {
-        StringBuilder sb = new StringBuilder("[  ");
-        for (int i : integers) {
-            sb.append(String.format("%-4d", i));
-        }
-        sb.append("]");
-        System.out.println(sb.toString());
-    }
-
     public static void main(String[] args) {
         final int N_PRIMES = 7;
         PrimeNumbers pn = new PrimeNumbers();
         pn.printPrimes(N_PRIMES);
         System.out.println("bubu");
         int[] primeNumbers = pn.findPrimes(100);
-        prinIntArray(primeNumbers);
+        Utils.printArray(primeNumbers);
     }
 
 }
