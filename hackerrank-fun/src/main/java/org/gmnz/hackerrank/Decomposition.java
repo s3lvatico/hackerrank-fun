@@ -15,7 +15,7 @@ public class Decomposition {
         Arrays.fill(exponents, 0);
 
         // debug
-        Utils.printArray(primeNumbers);
+        // Utils.printArray(primeNumbers);
 
         for (int i = 0; i < primeNumbers.length; i++) {
             int dd = n;
