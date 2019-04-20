@@ -13,8 +13,15 @@ public class IntegersBetween {
      * 
      * [ 2 4 ] [ 16 32 96]
      * 
-     * 2^1, 2^2 2^4, 2^5, 2^5*3
+     * 2^1, 2^2 2^4, 2^5, 2^5 * 3
      * 
+     * lui inizia a risolvere dicendo che i numeri candidati per l'insieme di mezzo
+     * potrebbero essere 4, 8, 12 e 16. E da questi, teoricamente, si può facilmente
+     * determinare quali sono divisori di ogni elemento del secondo insieme. Da come
+     * sono stati elencati verrebbe da pensare che l'algoritmo usato per ipotizzarli
+     * consista nel determinare il mcm degli elementi del primo insieme e includere
+     * questo e tutti i suoi multipli nell'insieme dei candidati, finché ci si
+     * mantiene non maggiori del primo elemento del secondo insieme.
      * 
      */
 }
