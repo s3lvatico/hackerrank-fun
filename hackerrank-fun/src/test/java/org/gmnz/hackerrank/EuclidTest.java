@@ -1,5 +1,6 @@
 package org.gmnz.hackerrank;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 /**
@@ -10,6 +11,13 @@ public class EuclidTest {
     @Test
     public void testMcd() {
         long l = Euclid.gcd(12, 8);
+        Assert.assertEquals(4, l);
+
+        l = Euclid.gcd(6, 12);
+        Assert.assertEquals(6, l);
+
+        l = Euclid.gcd(7, 5);
+        Assert.assertEquals(1, l);
     }
 
 }
