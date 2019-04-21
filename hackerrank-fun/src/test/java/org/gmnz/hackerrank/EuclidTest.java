@@ -8,6 +8,8 @@ import org.junit.Test;
  */
 public class EuclidTest {
 
+    private static final Logger logger = LogManager.getLogger("HelloWorld");
+
     @Test
     public void testMcd() {
         long l = Euclid.gcd(12, 8);

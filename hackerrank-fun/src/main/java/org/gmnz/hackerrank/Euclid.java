@@ -1,11 +1,16 @@
 package org.gmnz.hackerrank;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 /**
  * L'algoritmo euclideo.
  * <p>
  * Vedi anche https://en.wikipedia.org/wiki/Euclidean_algorithm
  */
 public class Euclid {
+
+    private static final Logger logger = LogManager.getLogger("HelloWorld");
 
     /**
      * Massimo comune divisore.
