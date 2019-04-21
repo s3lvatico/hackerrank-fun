@@ -20,6 +20,9 @@ public class Euclid {
      * Ad ogni passaggio ciò che occorre davvero determinare è il resto r_k
      */
     static long gcd(long a, long b) {
+        if (a < b) {
+            return gcd(b, a);
+        }
         while (b > 0) {
             long temp = b;
             b = a % b; // % is remainder
