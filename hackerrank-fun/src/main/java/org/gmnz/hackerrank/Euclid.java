@@ -7,6 +7,18 @@ package org.gmnz.hackerrank;
  */
 public class Euclid {
 
+    /**
+     * Massimo comune divisore.
+     * <p>
+     * L'algoritmo prosegue finché <code>r_k > 0</code>
+     * <p>
+     * <code>r_(k-2) = q_k * r_(k-1) + r_k</code>
+     * <p>
+     * E per <code>k = 0</code> si pone <code>r_(k-2) = a</code> e
+     * <code>r_(k-1) = b</code>
+     * <p>
+     * Ad ogni passaggio ciò che occorre davvero determinare è il resto r_k
+     */
     static long gcd(long a, long b) {
         while (b > 0) {
             long temp = b;
