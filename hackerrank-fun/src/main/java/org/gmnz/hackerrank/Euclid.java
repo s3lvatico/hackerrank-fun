@@ -10,7 +10,7 @@ import org.apache.logging.log4j.Logger;
  */
 public class Euclid {
 
-	private static final Logger logger = LogManager.getLogger("HelloWorld");
+	private static final Logger logger = LogManager.getLogger(Euclid.class);
 
 	/**
 	 * Massimo comune divisore.
@@ -34,8 +34,10 @@ public class Euclid {
 	 */
 	static long gcd(long a, long b) {
 		if (a < b) {
+			logger.debug("reinvocazione con valori nell'ordine giusto");
 			return gcd(b, a);
 		}
+		logger.info("mcd(%d, %d)", a, b);
 		while (b > 0) {
 			long temp = b;
 			b = a % b; // % is remainder
@@ -44,6 +46,12 @@ public class Euclid {
 		return a;
 	}
 
+	/**
+	 * Calcolo del MCD di un insieme di interi positivi.
+	 * 
+	 * @param input array di interi positivi
+	 * @return
+	 */
 	static long gcd(long[] input) {
 		long result = input[0];
 		for (int i = 1; i < input.length; i++)

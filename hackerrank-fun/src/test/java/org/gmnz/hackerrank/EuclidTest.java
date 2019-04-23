@@ -10,10 +10,14 @@ import org.junit.Test;
  */
 public class EuclidTest {
 
-    private static final Logger logger = LogManager.getLogger("HelloWorld");
+    private static final Logger logger = LogManager.getLogger(EuclidTest.class);
 
+    static {
+        
+    }
     @Test
     public void testMcd() {
+        logger.info("valori 12 , 8");
         long l = Euclid.gcd(12, 8);
         Assert.assertEquals(4, l);
 
