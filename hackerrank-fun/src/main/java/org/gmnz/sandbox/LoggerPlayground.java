@@ -18,5 +18,6 @@ public class LoggerPlayground {
 
    public static void main(String[] args) {
       log.info("oh ciao eh");
+      log.debug("debuggamo?");
    }
 }

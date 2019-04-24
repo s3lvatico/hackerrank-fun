@@ -34,15 +34,20 @@ public class Euclid {
 	 */
 	static long gcd(long a, long b) {
 		if (a < b) {
-			logger.debug("reinvocazione con valori nell'ordine giusto");
+			logger.warn("({}, {}) non nell'ordine atteso - reinvocazione con valori nell'ordine giusto", a, b);
 			return gcd(b, a);
 		}
-		logger.info("mcd(%d, %d)", a, b);
+		logger.info("mcd({}, {})", a, b);
 		while (b > 0) {
-			long temp = b;
-			b = a % b; // % is remainder
-			a = temp;
+			long r_k = a % b;
+			logger.debug("{} = {} * {} + {}", a, a/b, b, r_k);
+//			long temp = b;
+//			b = a % b; // % is remainder
+//			a = temp;
+			a = b;
+			b = r_k;
 		}
+		logger.debug("<<< {}", a);
 		return a;
 	}
 
