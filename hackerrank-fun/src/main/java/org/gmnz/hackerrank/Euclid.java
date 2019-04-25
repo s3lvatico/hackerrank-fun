@@ -40,14 +40,16 @@ public class Euclid {
 		logger.info("mcd({}, {})", a, b);
 		while (b > 0) {
 			long r_k = a % b;
-			logger.debug("{} = {} * {} + {}", a, a/b, b, r_k);
-//			long temp = b;
-//			b = a % b; // % is remainder
-//			a = temp;
+			logger.debug("{} = {} * {} + {}", a, a / b, b, r_k);
+			/*
+			 * long temp = b; // b = a % b; // % is remainder a = temp;
+			 */
+			// questa è la "vera" transizione tra un passo dell'algoritmo e il passo
+			// successivo
 			a = b;
 			b = r_k;
 		}
-		logger.debug("<<< {}", a);
+		logger.debug("<<< mcd = {}", a);
 		return a;
 	}
 
@@ -59,17 +61,23 @@ public class Euclid {
 	 */
 	static long gcd(long[] input) {
 		long result = input[0];
-		for (int i = 1; i < input.length; i++)
+		for (int i = 1; i < input.length; i++) {
 			result = gcd(result, input[i]);
+		}
 		return result;
 	}
 
 	/**
-	 * 
+	 * Regola semplice per il calcolo del minimo comune multiplo di due interi. E'
+	 * definibile in termini del loro massimo comune divisore.
+	 * <p>
+	 * Si dimostra che il mcm tra due numeri è pari al loro prodotto diviso per il
+	 * loro mcd.
+	 * <p>
 	 * https://en.wikipedia.org/wiki/Least_common_multiple#Reduction_by_the_greatest_common_divisor
 	 */
 	static long lcm(long a, long b) {
-		return a * (b / gcd(a, b));
+		return a * b / gcd(a, b);
 	}
 
 	static long lcm(long[] input) {
