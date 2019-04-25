@@ -13,8 +13,9 @@ public class EuclidTest {
     private static final Logger logger = LogManager.getLogger(EuclidTest.class);
 
     static {
-        
+
     }
+
     @Test
     public void testMcd() {
         logger.info("valori 12 , 8");
@@ -26,6 +27,9 @@ public class EuclidTest {
 
         l = Euclid.gcd(7, 5);
         Assert.assertEquals(1, l);
+
+        long[] sampleIntegers = new long[] { 15, 33, 39, 42, 48, 72, 84 };
+        l = Euclid.gcd(sampleIntegers);
     }
 
 }
