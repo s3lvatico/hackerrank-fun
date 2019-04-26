@@ -5,6 +5,7 @@ import java.util.Arrays;
 /**
  * PrimeNumbers
  */
+@Deprecated
 public class PrimeNumbers {
 
     int[] findPrimes(int upperBound) {
@@ -47,6 +48,7 @@ public class PrimeNumbers {
         primes[0] = 2;
         for (int i = 1; i < primes.length; i++) {
             int n = primes[i - 1];
+            System.out.println(n);
         }
     }
 

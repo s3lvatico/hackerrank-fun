@@ -6,7 +6,7 @@ import java.util.Arrays;
  * Scomposizione di un numero in fattori primi
  */
 public class Decomposition {
-
+    @SuppressWarnings("deprecation")
     void decompose(int n) {
         System.out.println("scompongo: " + n);
         int[] primeNumbers = new PrimeNumbers().findPrimes(n);
