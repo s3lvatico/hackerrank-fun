@@ -26,11 +26,49 @@ public class IntegersBetween {
      */
 
     static int getTotalX(int[] a, int[] b) {
-        /*
-         * Write your code here.
-         */
-        // TODO da finire!
-        return -1;
+        int baseLcm = lcm(a);
+        int am = baseLcm;
+        int arrBgcd = gcd(b);
+        int integersBetween = 0;
+        while (am <= arrBgcd) {
+            if (arrBgcd % am == 0) {
+                integersBetween++;
+            }
+            am += baseLcm;
+        }
+        return integersBetween;
+    }
+
+    private static int gcd(int a, int b) {
+        if (a < b) {
+            return gcd(b, a);
+        }
+        while (b > 0) {
+            int r_k = a % b;
+            a = b;
+            b = r_k;
+        }
+        return a;
+    }
+
+    private static int gcd(int[] n) {
+        int result = n[0];
+        for (int i = 1; i < n.length; i++) {
+            result = gcd(result, n[i]);
+        }
+        return result;
+    }
+
+    private static int lcm(int a, int b) {
+        return a * b / gcd(a, b);
+    }
+
+    private static int lcm(int[] n) {
+        int result = n[0];
+        for (int i = 1; i < n.length; i++) {
+            result = lcm(result, n[i]);
+        }
+        return result;
     }
 
     public static void main(String[] args) {
