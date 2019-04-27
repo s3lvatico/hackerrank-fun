@@ -1,7 +1,5 @@
 package org.gmnz.hackerrank;
 
-import java.util.Arrays;
-
 /**
  * QueensAttack2
  */
