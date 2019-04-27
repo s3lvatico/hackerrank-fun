@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - QueensAttack2",
+            "request": "launch",
+            "mainClass": "org.gmnz.hackerrank.QueensAttack2",
+            "projectName": "hackerrank-fun"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - LoggerPlayground",
             "request": "launch",
             "mainClass": "org.gmnz.sandbox.LoggerPlayground",
