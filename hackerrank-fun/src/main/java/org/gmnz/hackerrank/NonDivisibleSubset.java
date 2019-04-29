@@ -58,7 +58,7 @@ public class NonDivisibleSubset {
             for (int j = i + 1; j < n; j++) {
                 if (sieve[i] && sieve[j]) {
                     sum = S[i] + S[j];
-                    sieve[j] = (sum % k) != 0;                    
+                    sieve[j] = (sum % k) != 0;
                 }
             }
         }
@@ -69,6 +69,30 @@ public class NonDivisibleSubset {
             }
         }
         return count;
+    }
+
+    private void f1(int[] s, boolean[] cflags, int startIndex, int k) {
+        if (!cflags[startIndex])
+            return;
+        int i = 0;
+        while (i < s.length) {
+            if (i != startIndex) {
+                int sum = s[startIndex] + s[i];
+                cflags[i] = sum % k != 0;
+            }
+            i++;
+        }
+    }
+
+    private void f2() {
+        /**
+         * ad ogni giro devi reimpostare l'array delle flag e dopo una chiamata a f1
+         * devi controllare quante flag sono rimaste alzate. Quel numero dovrebbe
+         * corrispondere alla cardinalità dell'insieme dei non-divisori.
+         * 
+         * trova poi la massima cardinalità, iniziando ogni volta da un elemento diverso
+         * dell'array di partenza
+         */
     }
 
     public static void main(String[] args) {
