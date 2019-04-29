@@ -75,16 +75,26 @@ public class NonDivisibleSubset {
         if (!cflags[startIndex])
             return;
         int i = 0;
+        boolean allSumsDividable = true;
         while (i < s.length) {
             if (i != startIndex) {
                 int sum = s[startIndex] + s[i];
-                cflags[i] = sum % k != 0;
+                boolean sumDividable = sum % k == 0;
+                cflags[i] = !sumDividable;
+                allSumsDividable &= sumDividable;
             }
             i++;
         }
+
+        cflags[startIndex] = !allSumsDividable;
+
+        /*
+         * a questo punto l'array cflags vale true solo negli indici per i quali il
+         * corrispondente valore su S ha somma con S[startIndex] non divisibile per k
+         */
     }
 
-    private void f2() {
+    private int f2(int[] s, int k) {
         /**
          * ad ogni giro devi reimpostare l'array delle flag e dopo una chiamata a f1
          * devi controllare quante flag sono rimaste alzate. Quel numero dovrebbe
@@ -93,11 +103,36 @@ public class NonDivisibleSubset {
          * trova poi la massima cardinalità, iniziando ogni volta da un elemento diverso
          * dell'array di partenza
          */
+
+        /**
+         * richiama f1() iniziando dal suo primo elemento, poi, dal secondo... infine
+         * dall'n-esimo: a fine procedimento conta quanti true sono rimasti nelle cflags
+         */
+
+        int maximalCardinality = 0;
+        for (int startIndex = 0; startIndex < s.length; startIndex++) {
+            boolean[] cflags = new boolean[s.length];
+            Arrays.fill(cflags, true);
+            f1(s, cflags, startIndex, k);
+            int cardinality = 0;
+            for (boolean b : cflags) {
+                if (b)
+                    ++cardinality;
+            }
+            maximalCardinality = Math.max(maximalCardinality, cardinality);
+            if (maximalCardinality == 1) {
+                maximalCardinality = 0;
+            }
+        }
+        return maximalCardinality;
+
     }
 
     public static void main(String[] args) {
         NonDivisibleSubset nds = new NonDivisibleSubset();
-        int rank = nds.nonDivisibleSubset(3, new int[] { 1, 7, 2, 4 });
+        // int rank = nds.nonDivisibleSubset(3, new int[] { 1, 7, 2, 4 });
+        int rank = nds.f2(new int[] { 278, 576, 496, 727, 410, 124, 338, 149, 209, 702, 282, 718, 771, 575, 436 }, 7);
         System.out.println(rank);
+
     }
 }
