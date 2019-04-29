@@ -1,5 +1,6 @@
 package org.gmnz.hackerrank;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
@@ -47,28 +48,27 @@ public class NonDivisibleSubset {
     
     */
     int nonDivisibleSubset(int k, int[] S) {
-        // int maxNpairs = (int) new Combinatorics().combinations(S.length, 2);
-        // int[][] pairs = new int[maxNpairs][2];
-        // int goodPairsSoFar = -1;
-
-        Set<Integer> nonDividers = new HashSet<>();
-        Set<Integer> blackList = new HashSet<>();
+        int n = S.length;
+        boolean[] sieve = new boolean[n];
+        Arrays.fill(sieve, Boolean.TRUE);
 
         /* doppio ciclo for per generare tutte le combinazioni */
-        for (int i = 0; i < S.length - 1; i++) {
-            if (blackList.contains(i)) {
-                continue;
-            }
-            for (int j = i + 1; j < S.length; j++) {
-                if ((S[i] + S[j]) % k != 0) {
-                    
-                }
-                else {
-
+        for (int i = 0; i < n - 1; i++) {
+            int sum;
+            for (int j = i + 1; j < n; j++) {
+                if (sieve[i] && sieve[j]) {
+                    sum = S[i] + S[j];
+                    sieve[j] = (sum % k) != 0;                    
                 }
             }
         }
-        return nonDividers.size();
+        int count = 0;
+        for (int i = 0; i < n; i++) {
+            if (sieve[i]) {
+                count++;
+            }
+        }
+        return count;
     }
 
     public static void main(String[] args) {
