@@ -29,16 +29,20 @@ class Utils {
     }
 
     static void printArray(int[] integers) {
+        System.out.println(toString(integers));
+    }
+
+    static String toString(int[] integers) {
         int maxValue = findMax(integers);
         double log10Max = Math.log10(maxValue);
-        long stringMargin = (long) Math.ceil(log10Max) + 2;
+        long stringMargin = (long) Math.ceil(log10Max) + 3;
         String numFormatString = "%-" + stringMargin + "d";
         StringBuilder sb = new StringBuilder("[  ");
         for (int i : integers) {
             sb.append(String.format(numFormatString, i));
         }
         sb.append("]");
-        System.out.println(sb.toString());
+        return sb.toString();
     }
 
 }

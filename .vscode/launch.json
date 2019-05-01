@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - NonDivisibleSubset2",
+            "request": "launch",
+            "mainClass": "org.gmnz.hackerrank.NonDivisibleSubset2",
+            "projectName": "hackerrank-fun"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - NonDivisibleSubset",
             "request": "launch",
             "mainClass": "org.gmnz.hackerrank.NonDivisibleSubset",

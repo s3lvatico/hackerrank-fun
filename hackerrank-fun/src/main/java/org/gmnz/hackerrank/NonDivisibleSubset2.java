@@ -1,73 +1,56 @@
 package org.gmnz.hackerrank;
 
-import java.util.Arrays;
-import java.util.HashMap;
 import java.util.HashSet;
-import java.util.Map;
 import java.util.Set;
 
 /**
  * NonDivisibleSubset
+ * 
+ * Può voler dire studiare la struttura algebrica (N/k, +).
+ * 
+ * 
  */
 public class NonDivisibleSubset2 {
 
-    static class Nds {
+    static int nonDivisibleSubset(int k, int[] S) {
+        /*
+         * trovo la distribuzione dell'array iniziale S. Definisco l'array distr tale
+         * che distr[i] indica quanti elementi di S sono modulo k
+         */
 
-        private final int k;
-        private final Set<Integer> _set;
-
-        Nds(int k) {
-            this.k = k;
-            _set = new HashSet<>();
+        int[] distr = new int[k];
+        for (int s : S) {
+            distr[s % k]++;
         }
+        Utils.printArray(distr);
 
-        boolean canBeAdded(int n) {
-            if (_set.size() == 0) {
-                return true;
-            } else {
-                int sum;
-                for (int s : _set) {
-                    sum = s + n;
-                    if (sum % k == 0) {
-                        return false;
-                    }
-                }
-                return true;
-            }
+        /*
+         * Ora devo studiare l'insieme dei non-divisori. Trovare un insieme di
+         * cardinalità massima composto da elementi tali che la loro somma non è
+         * divisibile per k. Questo equivale a dire che la somma di due elmenti
+         * qualsiasi di S non si trova in classe [0]
+         */
+
+        /*
+         * ora va costruito l'insieme e determinata la sua cardinalità. data la regola
+         * per la quale [r] + [s] = [r+s], comincio a domandarmi: l'insieme che cerco
+         * può contenere elementi di classe [0]? Al più uno. Se per assurdo ne
+         * contenesse due, la loro somma sarebbe ancora in [0] e violerebbe la regola.
+         */
+        int maximalCard = distr[0] == 1 ? 1 : 0;
+        /*
+         * per determinare la cardinalità massima continuo a chiedermi se elementi delle
+         * altre classi possono stare nell'insieme che cerco. Le classi sono esattamente
+         * k, cioè [0], [1], [2], ..., [k-1]
+         * 
+         */
+        for (int i = 1; i < k / 2; i++) {
+            maximalCard += Math.max(distr[i], distr[k - i]);
         }
-
-        int getSize() {
-            return _set.size();
-        }
-
-        void add(int n) {
-            _set.add(n);
-        }
-    }
-
-    static int nonDivisibleSubset(int k, int[] s) {
-        int maxCardinality = 0;
-        int l = s.length;
-
-        for (int i = 0; i < l; i++) {
-            Nds nds = buildNds(s, i, k);
-            maxCardinality = Math.max(maxCardinality, nds.getSize());
-        }
-        return maxCardinality;
-    }
-
-    private static Nds buildNds(int[] s, int idx, int k) {
-        Nds nds = new Nds(k);
-        nds.add(s[idx]);
-
-        int j = 0;
-        while (j < s.length) {
-            if (j != idx && nds.canBeAdded(s[j])) {
-                nds.add(s[j]);
-            }
-            j++;
-        }
-        return nds;
+        // if (k % 2 == 1) {
+        // maximalCard += distr[k / 2];
+        // }
+        return maximalCard;
     }
 
     public static void main(String[] args) {
@@ -75,8 +58,22 @@ public class NonDivisibleSubset2 {
         // int rank = nds.nonDivisibleSubset(3, new int[] { 1, 7, 2, 4 });
         // int rank = nds.f2(new int[] { 278, 576, 496, 727, 410, 124, 338, 149, 209,
         // 702, 282, 718, 771, 575, 436 }, 7);
-        int rank = NonDivisibleSubset2.nonDivisibleSubset(7,
-                new int[] { 278, 576, 496, 727, 410, 124, 338, 149, 209, 702, 282, 718, 771, 575, 436 });
+        // int[] S = new int[] { 278, 576, 496, 727, 410, 124, 338, 149, 209, 702, 282,
+        // 718, 771, 575, 436 };
+        // int k = 7;
+        // int[] S = new int[] { 1, 7, 2, 4 };
+        // int k = 3;
+
+        int[] S = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+        int k = 4;
+
+        // int[] S = new int[] { 2, 7, 12, 17, 22 };
+        // int k = 5;
+
+        System.out.format("S = %s%n", Utils.toString(S));
+        System.out.format("k = %d%n%n", k);
+        int rank = NonDivisibleSubset2.nonDivisibleSubset(k, S);
+
         System.out.println(rank);
 
     }
