@@ -1,8 +1,5 @@
 package org.gmnz.hackerrank;
 
-import java.util.HashSet;
-import java.util.Set;
-
 /**
  * NonDivisibleSubset
  * 
@@ -37,7 +34,7 @@ public class NonDivisibleSubset2 {
          * può contenere elementi di classe [0]? Al più uno. Se per assurdo ne
          * contenesse due, la loro somma sarebbe ancora in [0] e violerebbe la regola.
          */
-        int maximalCard = distr[0] != 0 ? 1 : 0;
+        int maxSubsetSize = distr[0] == 0 ? 0 : 1;
         /*
          * per determinare la cardinalità massima continuo a chiedermi se elementi delle
          * altre classi possono stare nell'insieme che cerco. Le classi sono esattamente
@@ -48,36 +45,39 @@ public class NonDivisibleSubset2 {
          * [0].
          * 
          */
-        for (int i = 1; i <= k / 2; i++) {
-            if (i == k / 2 && distr[k / 2] != 0) {
-                maximalCard += 1;
-            } else {
-                maximalCard += Math.max(distr[i], distr[k - i]);
-            }
+        for (int i = 1; i < k / 2; i++) {
+            maxSubsetSize += Math.max(distr[i], distr[k - i]);
         }
         if (k % 2 == 0) {
+            maxSubsetSize += 1;
+        } else {
+            maxSubsetSize += Math.max(distr[k / 2], distr[k - k / 2]);
         }
-        return maximalCard;
+        return maxSubsetSize;
     }
 
     public static void main(String[] args) {
-        // NonDivisibleSubset nds = new NonDivisibleSubset();
-        // int rank = nds.nonDivisibleSubset(3, new int[] { 1, 7, 2, 4 });
-        // int rank = nds.f2(new int[] { 278, 576, 496, 727, 410, 124, 338, 149, 209,
-        // 702, 282, 718, 771, 575, 436 }, 7);
 
+        // test case -1
+        // int[] S = new int[] { 19, 10, 12, 10, 24, 25, 22 };
+        // int k = 4;
+
+        // test case 0 (exp 3)
+        // int[] S = new int[] { 1, 7, 2, 4 };
+        // int k = 4;
+
+        // test case 1 (exp 5)
+        // int[] S = new int[] { 2, 7, 12, 17, 22 };
+        // int k = 5;
+
+        // test case 16 (exp 11)
         // int[] S = new int[] { 278, 576, 496, 727, 410, 124, 338, 149, 209, 702, 282,
         // 718, 771, 575, 436 };
         // int k = 7;
 
-        // int[] S = new int[] { 1, 7, 2, 4 };
-        // int k = 3;
-
-        // int[] S = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
-        // int k = 4;
-
-        int[] S = new int[] { 2, 7, 12, 17, 22 };
-        int k = 5;
+        // test case 7 (exp 5)
+        int[] S = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+        int k = 4;
 
         System.out.format("S = %s%n", Utils.toString(S));
         System.out.format("k = %d%n%n", k);
