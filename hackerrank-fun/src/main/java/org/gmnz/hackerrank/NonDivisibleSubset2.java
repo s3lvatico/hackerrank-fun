@@ -45,13 +45,15 @@ public class NonDivisibleSubset2 {
          * [0].
          * 
          */
-        for (int i = 1; i < k / 2; i++) {
-            maxSubsetSize += Math.max(distr[i], distr[k - i]);
-        }
-        if (k % 2 == 0) {
-            maxSubsetSize += 1;
-        } else {
-            maxSubsetSize += Math.max(distr[k / 2], distr[k - k / 2]);
+        if (k != 1) {
+            for (int i = 1; i < k / 2; i++) {
+                maxSubsetSize += Math.max(distr[i], distr[k - i]);
+            }
+            if (k % 2 == 0) {
+                maxSubsetSize += 1;
+            } else {
+                maxSubsetSize += Math.max(distr[k / 2], distr[k - k / 2]);
+            }
         }
         return maxSubsetSize;
     }
@@ -76,8 +78,12 @@ public class NonDivisibleSubset2 {
         // int k = 7;
 
         // test case 7 (exp 5)
-        int[] S = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
-        int k = 4;
+        // int[] S = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+        // int k = 4;
+
+        // test case 6 (exp 1)
+        int[] S = new int[] { 1, 2, 3, 4, 5 };
+        int k = 1;
 
         System.out.format("S = %s%n", Utils.toString(S));
         System.out.format("k = %d%n%n", k);
