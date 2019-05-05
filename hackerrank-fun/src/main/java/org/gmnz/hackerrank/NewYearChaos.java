@@ -65,28 +65,28 @@ public class NewYearChaos {
             int x = q[i];
             int jumps = 0;
             // dedurre se è nella posizione giusta
-            if (x > i + 1) {
-                // controllo solo se è maggiore dell'elemento che dovrebbe occupare quella
-                // posizione. Se trovassi un numero minore di quello che dovrebbe esserci vuol
-                // dire che qualcuno più avanti ha spinto il numero corrente nella posizione
-                // attuale. Ricorda che devi trovare la causa, non l'effetto.
+            // if (x > i + 1) {
+            // controllo solo se è maggiore dell'elemento che dovrebbe occupare quella
+            // posizione. Se trovassi un numero minore di quello che dovrebbe esserci vuol
+            // dire che qualcuno più avanti ha spinto il numero corrente nella posizione
+            // attuale. Ricorda che devi trovare la causa, non l'effetto.
 
-                // Essendo maggiore di ciò che dovrei trovare vuol dire che ha scavalcato.
-                // Quanti posti ha scavalcato? Dipende dal numero di elementi minimi trovati
-                // finora rispetto ai quali il numero corrente è maggiore
-                if (x > pivots[lo]) {
+            // Essendo maggiore di ciò che dovrei trovare vuol dire che ha scavalcato.
+            // Quanti posti ha scavalcato? Dipende dal numero di elementi minimi trovati
+            // finora rispetto ai quali il numero corrente è maggiore
+            if (x > pivots[lo]) {
+                jumps++;
+                if (x > pivots[mid]) {
                     jumps++;
-                    if (x > pivots[mid]) {
-                        jumps++;
-                        if (x > pivots[hi]) {
-                            // ha "saltato" troppo, quindi coda troppo caotica, e ritorno
-                            System.out.println("Too chaotic");
-                            return -2;
-                        }
+                    if (x > pivots[hi]) {
+                        // ha "saltato" troppo, quindi coda troppo caotica, e ritorno
+                        System.out.println("Too chaotic");
+                        return -2;
                     }
                 }
-                b += jumps;
             }
+            // }
+            b += jumps;
 
             // a prescindere dall'eventuale numero di salti conteggiati va comunque
             // aggiornato l'array dei minimi
