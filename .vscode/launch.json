@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - Birthday",
+            "request": "launch",
+            "mainClass": "org.gmnz.hackerrank.Birthday",
+            "projectName": "hackerrank-fun"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - NonDivisibleSubset2",
             "request": "launch",
             "mainClass": "org.gmnz.hackerrank.NonDivisibleSubset2",
