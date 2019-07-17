@@ -3,7 +3,7 @@ package tech.jore.hrpg.graph;
 import tech.jore.hrpg.Bag;
 import tech.jore.hrpg.BagFactory;
 
-public class Graph {
+class GraphImpl implements Graph {
 
     // TODO aggiungi il separatore di linea che può far comodo
 
@@ -17,10 +17,8 @@ public class Graph {
      * @param vertexes numero di vertici; deve essere non negativo, pena
      *                 {@link IllegalArgumentException}
      */
-    public Graph(int vertexes) {
-        if (vertexes < 0) {
-            throw new IllegalArgumentException("negative number of vertexes specified");
-        }
+    Graph(int vertexes) {
+      
 
         this.vertexes = vertexes;
         this.edges = 0;
