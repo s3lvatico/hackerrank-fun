@@ -14,10 +14,10 @@ import org.apache.logging.log4j.Logger;
  */
 public class LoggerPlayground {
 
-   private static final Logger log = LogManager.getLogger(LoggerPlayground.class);
+   private static final Logger logger = LogManager.getLogger(LoggerPlayground.class);
 
    public static void main(String[] args) {
-      log.info("oh ciao eh");
-      log.debug("debuggamo?");
+      logger.info("oh ciao eh");
+      logger.debug("debuggamo?");
    }
 }
