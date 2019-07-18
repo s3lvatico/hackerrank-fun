@@ -5,6 +5,8 @@ import tech.jore.hrpg.BagFactory;
 
 class GraphImpl implements Graph {
 
+    private static final String LINE_SEP = System.getProperty("line.separator");
+
     private final int vertexes;
     private int edges;
     private Bag<Integer>[] adj; // adiacenze
@@ -34,5 +36,23 @@ class GraphImpl implements Graph {
 
     public void addEdge(int v, int w) {
         adj[v].add(w);
+        edges++;
+    }
+
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("Maximum vertexes : " + vertexes).append(LINE_SEP);
+        sb.append("Edges : " + edges).append(LINE_SEP);
+        for (int v = 0; v < vertexes; v++) {
+            if (adj[v].size() > 0) {
+                sb.append(v + ":");
+                for (int w : adj[v]) {
+                    sb.append(" " + w);
+                }
+                sb.append(LINE_SEP);
+            }
+        }
+        sb.append(LINE_SEP);
+        return sb.toString();
     }
 }
