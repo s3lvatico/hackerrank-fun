@@ -1,7 +1,7 @@
 package tech.jore.hrpg.graph;
 
 public interface Graph {
-    
+
     int countVertexes();
 
     int countEdges();
@@ -10,4 +10,6 @@ public interface Graph {
 
     Iterable<Integer> adj(int v);
 
+    boolean hasVertex(int v);
+    
 }
