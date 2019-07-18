@@ -5,21 +5,11 @@ import tech.jore.hrpg.BagFactory;
 
 class GraphImpl implements Graph {
 
-    // TODO aggiungi il separatore di linea che può far comodo
-
     private final int vertexes;
     private int edges;
     private Bag<Integer>[] adj; // adiacenze
 
-    /**
-     * inizializza un nuovo grafo con {@code vertexes} vertici e 0 archi
-     * 
-     * @param vertexes numero di vertici; deve essere non negativo, pena
-     *                 {@link IllegalArgumentException}
-     */
-    Graph(int vertexes) {
-      
-
+    GraphImpl(int vertexes) {
         this.vertexes = vertexes;
         this.edges = 0;
 
@@ -30,4 +20,19 @@ class GraphImpl implements Graph {
         }
     }
 
+    public int countVertexes() {
+        return vertexes;
+    }
+
+    public int countEdges() {
+        return edges;
+    }
+
+    public Iterable<Integer> adj(int v) {
+        return adj[v];
+    }
+
+    public void addEdge(int v, int w) {
+        adj[v].add(w);
+    }
 }

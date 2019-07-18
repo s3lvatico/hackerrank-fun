@@ -1,17 +1,33 @@
 package tech.jore.hrpg.graph;
 
+import java.io.InputStream;
+import java.util.Scanner;
+
 public final class GraphBuilder {
 
-    public static Graph buildEmptyGraph(int maxVertexes) {
-        if (maxVertexes < 0) {
+    public static Graph buildEmptyGraph(int vertexes) {
+        if (vertexes < 0) {
             throw new IllegalArgumentException("negative number of vertexes specified");
         }
 
-        return null; // TODO buildEmptyGraph(int)
+        return new GraphImpl(vertexes);
     }
 
     public static Graph buildGraph(InputStream in) {
-        return null; // TODO buildGraph(InputStream)
+        Scanner s = new Scanner(in);
+        int vertexes = s.nextInt();
+
+        GraphImpl g = new GraphImpl(vertexes);
+
+        int edges = s.nextInt();
+
+        for (int i = 0; i < edges; i++) {
+            int v = s.nextInt();
+            int w = s.nextInt();
+            g.addEdge(v, w);
+        }
+
+        return g;
     }
 
 }

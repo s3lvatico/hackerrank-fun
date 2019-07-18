@@ -6,6 +6,8 @@ public interface Graph {
 
     int countEdges();
 
+    void addEdge(int v, int w);
+
     Iterable<Integer> adj(int v);
 
 }
