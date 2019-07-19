@@ -10,4 +10,6 @@ public interface Graph {
 
     Iterable<Integer> adj(int v);
 
+    boolean hasVertex(int v);
+    
 }
