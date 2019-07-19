@@ -1,5 +1,5 @@
 {
-    "editor.fontSize": 11,
+    "editor.fontSize": 12,
     "editor.wordWrapColumn": 120,
     "files.exclude": {
         "**/.classpath": true,
@@ -7,7 +7,11 @@
         "**/.settings": true,
         "**/.factorypath": true
     },
-    "editor.fontFamily": "'PT Mono Regular', Consolas, 'Courier New', monospace",
+    "editor.fontFamily": "'Operator Mono Light', 'Courier New', monospace",
     "editor.wordWrap": "wordWrapColumn",
-    "editor.smoothScrolling": true
+    "editor.lineHeight": 13,
+    "editor.fontLigatures": true,
+    "explorer.decorations.badges": false,
+    "java.implementationsCodeLens.enabled": true,
+    "java.referencesCodeLens.enabled": true
 }

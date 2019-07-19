@@ -2,65 +2,23 @@
     "configurations": [
         {
             "type": "java",
-            "name": "CodeLens (Launch) - Birthday",
+            "name": "CodeLens (Launch) - Solution",
             "request": "launch",
-            "mainClass": "org.gmnz.hackerrank.Birthday",
+            "mainClass": "org.gmnz.hackerrank.Solution",
             "projectName": "hackerrank-fun"
         },
         {
             "type": "java",
-            "name": "CodeLens (Launch) - NonDivisibleSubset2",
+            "name": "CodeLens (Launch) - IntegersBetween",
             "request": "launch",
-            "mainClass": "org.gmnz.hackerrank.NonDivisibleSubset2",
+            "mainClass": "org.gmnz.hackerrank.IntegersBetween",
             "projectName": "hackerrank-fun"
         },
         {
             "type": "java",
-            "name": "CodeLens (Launch) - NonDivisibleSubset",
+            "name": "CodeLens (Launch) - Lilah",
             "request": "launch",
-            "mainClass": "org.gmnz.hackerrank.NonDivisibleSubset",
-            "projectName": "hackerrank-fun"
-        },
-        {
-            "type": "java",
-            "name": "CodeLens (Launch) - QueensAttack2",
-            "request": "launch",
-            "mainClass": "org.gmnz.hackerrank.QueensAttack2",
-            "projectName": "hackerrank-fun"
-        },
-        {
-            "type": "java",
-            "name": "CodeLens (Launch) - LoggerPlayground",
-            "request": "launch",
-            "mainClass": "org.gmnz.sandbox.LoggerPlayground",
-            "projectName": "hackerrank-fun"
-        },
-        {
-            "type": "java",
-            "name": "CodeLens (Launch) - Decomposition",
-            "request": "launch",
-            "mainClass": "org.gmnz.hackerrank.Decomposition",
-            "projectName": "hackerrank-fun"
-        },
-        {
-            "type": "java",
-            "name": "CodeLens (Launch) - PrimeNumbers",
-            "request": "launch",
-            "mainClass": "org.gmnz.hackerrank.PrimeNumbers",
-            "projectName": "hackerrank-fun"
-        },
-        {
-            "type": "java",
-            "name": "CodeLens (Launch) - Kangaroos",
-            "request": "launch",
-            "mainClass": "org.gmnz.hackerrank.Kangaroos",
-            "projectName": "hackerrank-fun"
-        },
-        {
-            "type": "java",
-            "name": "CodeLens (Launch) - App",
-            "request": "launch",
-            "mainClass": "org.gmnz.hackerrank.App",
+            "mainClass": "org.gmnz.hackerrank.Lilah",
             "projectName": "hackerrank-fun"
         }
     ]
