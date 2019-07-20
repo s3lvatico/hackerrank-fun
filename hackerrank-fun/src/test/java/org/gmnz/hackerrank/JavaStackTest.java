@@ -15,7 +15,7 @@ public class JavaStackTest {
 
     @Test
     public void hrExercise() {
-        Scanner s = new Scanner(JavaStackTest.class.getResourceAsStream("/javaStackTest.txt"));
+        Scanner s = new Scanner(JavaStackTest.class.getResourceAsStream("/javaStackTest2.txt"));
         String input;
 
         Map<Character, Character> parentheses = new HashMap<>();
@@ -34,7 +34,6 @@ public class JavaStackTest {
                 if (parentheses.containsKey(c))
                     stack.push(parentheses.get(c));
                 else if (parentheses.containsValue(c)) {
-                    // TODO attento a quando fai pop a stack vuoto
                     char popped = stack.pop();
                     isValid = c == popped;
                 }
@@ -43,7 +42,8 @@ public class JavaStackTest {
             }
             // a fine analisi, se ci sono anora elementi nello stack vuol dire che ci sono
             // parentesi sbilanciate
-            isValid = stack.size() == 0;
+            if (isValid)
+                isValid = stack.size() == 0;
             System.out.println(isValid);
         }
         s.close();

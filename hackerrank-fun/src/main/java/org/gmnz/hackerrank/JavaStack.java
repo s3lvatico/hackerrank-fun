@@ -20,7 +20,7 @@ public class JavaStack {
 
     public Character pop() {
         if (top == null) {
-            return null;
+            return '.';
         }
         char value = top.value;
         top = top.next;
