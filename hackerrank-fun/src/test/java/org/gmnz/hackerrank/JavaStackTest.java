@@ -34,6 +34,7 @@ public class JavaStackTest {
                 if (parentheses.containsKey(c))
                     stack.push(parentheses.get(c));
                 else if (parentheses.containsValue(c)) {
+                    // TODO attento a quando fai pop a stack vuoto
                     char popped = stack.pop();
                     isValid = c == popped;
                 }
