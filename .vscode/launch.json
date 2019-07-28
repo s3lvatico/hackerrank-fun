@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - Array1D",
+            "request": "launch",
+            "mainClass": "org.gmnz.hackerrank.Array1D",
+            "projectName": "hackerrank-fun"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - Solution",
             "request": "launch",
             "mainClass": "org.gmnz.hackerrank.Solution",
