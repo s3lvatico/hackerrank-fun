@@ -5,7 +5,8 @@
             "name": "CodeLens (Launch) - Array1D",
             "request": "launch",
             "mainClass": "org.gmnz.hackerrank.Array1D",
-            "projectName": "hackerrank-fun"
+            "projectName": "hackerrank-fun",
+            "args": "array1dpt2-testcase-3.txt"
         },
         {
             "type": "java",

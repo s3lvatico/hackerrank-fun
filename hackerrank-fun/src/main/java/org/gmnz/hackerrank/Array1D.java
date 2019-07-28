@@ -1,82 +1,57 @@
 package org.gmnz.hackerrank;
 
-import java.io.File;
-import java.io.FileWriter;
-import java.io.PrintWriter;
-import java.net.URL;
+import java.io.InputStream;
 import java.util.Arrays;
 import java.util.Scanner;
 
 public class Array1D {
 
-   private int[] game;
+   private static boolean[] visited;
 
-   private int leap;
-   private int n;
-   private boolean[] visited;
-
-   Array1D(int[] arr, int leap) {
-      game = arr;
-      visited = new boolean[game.length];
+   public static boolean canWin(int leap, int[] game) {
+      int n = game.length;
+      visited = new boolean[n];
       Arrays.fill(visited, false);
-      n = game.length;
-      this.leap = leap;
+      int pos = 0;
+      if (leap >= n - 1)
+         return true;
+      return canWin(game, n, leap, 1) || canWin(game, n, leap, leap);
+
    }
 
-   public boolean canWin() {
-      return canWin(0);
-   }
-
-   private boolean canWin(int pos) {
+   private static boolean canWin(int[] game, int n, int leap, int pos) {
       if (pos >= n)
          return true;
       if (pos < 0 || visited[pos] || game[pos] == 1)
          return false;
       visited[pos] = true;
 
-      return canWin(pos + leap) || canWin(pos + 1) || canWin(pos - 1);
+      return canWin(game, n, leap, pos + leap) || canWin(game, n, leap, pos + 1) || canWin(game, n, leap, pos - 1);
    }
 
    public static void main(String[] args) throws Exception {
-      Scanner s = new Scanner(Array1D.class.getResourceAsStream("/array1dpt2-testcase-3.txt"));
 
-      int queries = s.nextInt();
-      s.skip(s.delimiter());
-
-      URL u0 = Array1D.class.getResource("/array1dpt2-testcase-3.txt");
-
-      String targetPath = u0.getPath();
-      StringBuilder sb = new StringBuilder(targetPath.substring(0, targetPath.lastIndexOf("/") + 1));
-      sb.append("array1dpt2-testcase-3-results-").append(System.currentTimeMillis()).append(".txt");
-
-      PrintWriter pw = new PrintWriter(new File(sb.toString()));
-
-      for (int i = 0; i < queries; i++) {
-         int gameSize = s.nextInt();
-         // System.out.println("gamesize : " + gameSize);
-
-         int leap = s.nextInt();
-         // System.out.println("leap : " + leap);
-
-         int[] game = new int[gameSize];
-         // System.out.println("game array initialized");
-
-         for (int j = 0; j < gameSize; j++) {
-            game[j] = s.nextInt();
-         }
-         // System.out.println("game array completed:");
-         // for (int j = 0; j < gameSize; j++) {
-         // System.out.print(game[j] + " ");
-         // }
-         // System.out.println("\n");
-
-         String canWin = new Array1D(game, leap).canWin() ? "YES" : "NO";
-         System.out.println(canWin);
-         pw.println(canWin);
+      InputStream inStream;
+      if (args.length == 0) {
+         inStream = System.in;
+      } else {
+         String inputResource = "/" + args[0];
+         inStream = Array1D.class.getResourceAsStream(inputResource);
       }
+      Scanner scan = new Scanner(inStream);
+      int q = scan.nextInt();
+      while (q-- > 0) {
+         int n = scan.nextInt();
+         int leap = scan.nextInt();
 
-      pw.close();
-      s.close();
+         int[] game = new int[n];
+         for (int i = 0; i < n; i++) {
+            game[i] = scan.nextInt();
+         }
+
+         System.out.println((canWin(leap, game)) ? "YES" : "NO");
+      }
+      scan.close();
    }
 
 }
