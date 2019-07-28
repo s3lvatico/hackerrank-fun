@@ -7,9 +7,9 @@
         "**/.settings": true,
         "**/.factorypath": true
     },
-    "editor.fontFamily": "'Operator Mono Light', 'Courier New', monospace",
+    "editor.fontFamily": "'Operator Mono Light', 'PT Mono', 'Courier New', monospace",
     "editor.wordWrap": "wordWrapColumn",
-    "editor.lineHeight": 15,
+    "editor.lineHeight": 13,
     "editor.fontLigatures": true,
     "explorer.decorations.badges": false,
     "java.implementationsCodeLens.enabled": true,
