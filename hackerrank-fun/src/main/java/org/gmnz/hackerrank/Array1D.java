@@ -12,7 +12,6 @@ public class Array1D {
       int n = game.length;
       visited = new boolean[n];
       Arrays.fill(visited, false);
-      int pos = 0;
       if (leap >= n - 1)
          return true;
       return canWin(game, n, leap, 1) || canWin(game, n, leap, leap);
