@@ -9,7 +9,7 @@
     },
     "editor.fontFamily": "'Operator Mono Light', 'PT Mono', 'Courier New', monospace",
     "editor.wordWrap": "wordWrapColumn",
-    "editor.lineHeight": 13,
+    "editor.lineHeight": 14,
     "editor.fontLigatures": true,
     "explorer.decorations.badges": false,
     "java.implementationsCodeLens.enabled": true,
