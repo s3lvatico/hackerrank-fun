@@ -3,7 +3,7 @@ package org.gmnz.ipk;
 import java.io.File;
 import java.lang.ProcessBuilder.Redirect;
 
-
+import org.junit.Assert;
 import org.junit.Test;
 
 public class ProcessSpawn {
@@ -20,6 +20,6 @@ public class ProcessSpawn {
       // TimeUnit.SECONDS.sleep(2);
       p.waitFor();
       p.destroy();
-
+      Assert.assertTrue(true);
    }
 }
