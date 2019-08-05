@@ -2,49 +2,96 @@ package org.gmnz.ipk;
 
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.IOException;
 import java.io.InputStreamReader;
-import java.lang.ProcessBuilder.Redirect;
+import java.net.URISyntaxException;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.junit.Assert;
 import org.junit.Test;
 
 public class ArrayManipulationTest {
 
    private static final Logger log = LogManager.getLogger();
 
-   @Test
-   public void dummy() throws Exception {
-      ProcessBuilder pb = new ProcessBuilder("java", "-cp", "target/classes", ArrayManipulation.class.getName());
-      log.info("ProcessBuilder created");
+   private ProcessBuilder prepareForExecution(Class<?> targetClass, String strInputFileUrl) throws URISyntaxException {
+      ProcessBuilder pb = new ProcessBuilder("java", "-cp", "target/classes", targetClass.getName());
+      log.info("ProcessBuilder created for execution of class {}", targetClass.getName());
 
-      File f = new File(ArrayManipulationTest.class.getResource("/arrman/input/input14.txt").toURI());
-      System.out.println("le file : " + f);
-      System.out.println("exists? : " + f.exists());
+      File f = new File(ArrayManipulationTest.class.getResource(strInputFileUrl).toURI());
+      log.info("input file to the test target :  {}", f);
+      log.debug("exists? : " + f.exists());
+
       pb.redirectInput(f);
+      pb.redirectErrorStream(true);
 
-      // System.out.println("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA!");
+      return pb;
+
+   }
+
+   private void logStdOutFromProcess(Process p) throws IOException {
+      BufferedReader r = new BufferedReader(new InputStreamReader(p.getInputStream()));
+      try {
+         String readLine;
+         while ((readLine = r.readLine()) != null) {
+            log.info(readLine);
+         }
+      } finally {
+         r.close();
+      }
+   }
+
+   @Test
+   public void testInput14() throws Exception {
+
+      ProcessBuilder pb = prepareForExecution(ArrayManipulation.class, "/arrman/input/input14.txt");
 
       log.info("Starting process...");
       Process p = pb.start();
       log.info("Process started, waiting for completion");
 
-      BufferedReader r = new BufferedReader(new InputStreamReader(p.getInputStream()));
-      String readLine;
-      while ((readLine = r.readLine()) != null) {
-         System.out.println("linea!");
-         log.info(readLine);
-      }
+      logStdOutFromProcess(p);
 
       p.waitFor();
 
       p.destroy();
       log.info("Process ended");
 
-      r.close();
+   }
 
-      Assert.assertTrue(true);
+   @Test
+   public void testInput00() throws Exception {
+
+      ProcessBuilder pb = prepareForExecution(ArrayManipulation.class, "/arrman/input/input00.txt");
+
+      log.info("Starting process...");
+      Process p = pb.start();
+      log.info("Process started, waiting for completion");
+
+      logStdOutFromProcess(p);
+
+      p.waitFor();
+
+      p.destroy();
+      log.info("Process ended");
+
+   }
+
+   @Test
+   public void testInput15() throws Exception {
+
+      ProcessBuilder pb = prepareForExecution(ArrayManipulation.class, "/arrman/input/input15.txt");
+
+      log.info("Starting process...");
+      Process p = pb.start();
+      log.info("Process started, waiting for completion");
+
+      logStdOutFromProcess(p);
+
+      p.waitFor();
+
+      p.destroy();
+      log.info("Process ended");
 
    }
 }
