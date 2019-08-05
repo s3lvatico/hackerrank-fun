@@ -2,6 +2,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - DummyOutputGen",
+            "request": "launch",
+            "mainClass": "org.gmnz.prove.DummyOutputGen",
+            "projectName": "hackerrank-fun"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - ArrayManipulation",
+            "request": "launch",
+            "mainClass": "org.gmnz.ipk.ArrayManipulation",
+            "projectName": "hackerrank-fun"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - Array1D",
             "request": "launch",
             "mainClass": "org.gmnz.hackerrank.Array1D",
