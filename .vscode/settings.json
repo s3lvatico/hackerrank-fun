@@ -13,5 +13,6 @@
     "editor.fontLigatures": true,
     "explorer.decorations.badges": false,
     "java.implementationsCodeLens.enabled": true,
-    "java.referencesCodeLens.enabled": true
+    "java.referencesCodeLens.enabled": true,
+    "java.configuration.updateBuildConfiguration": "interactive"
 }

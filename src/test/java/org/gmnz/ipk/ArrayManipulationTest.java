@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URISyntaxException;
+import java.util.Map;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -14,7 +15,8 @@ public class ArrayManipulationTest {
 
    private static final Logger log = LogManager.getLogger();
 
-   private ProcessBuilder prepareForExecution(Class<?> targetClass, String strInputFileUrl) throws URISyntaxException {
+   private ProcessBuilder prepareForExecution(Class<?> targetClass, String strInputFileUrl,
+         Map<String, String> environment) throws URISyntaxException {
       ProcessBuilder pb = new ProcessBuilder("java", "-cp", "target/classes", targetClass.getName());
       log.info("ProcessBuilder created for execution of class {}", targetClass.getName());
 
@@ -22,11 +24,18 @@ public class ArrayManipulationTest {
       log.info("input file to the test target :  {}", f);
       log.debug("exists? : " + f.exists());
 
+      if (environment != null) {
+         pb.environment().putAll(environment);
+      }
+
       pb.redirectInput(f);
       pb.redirectErrorStream(true);
 
       return pb;
+   }
 
+   private ProcessBuilder prepareForExecution(Class<?> targetClass, String strInputFileUrl) throws URISyntaxException {
+      return prepareForExecution(targetClass, strInputFileUrl, null);
    }
 
    private void logStdOutFromProcess(Process p) throws IOException {

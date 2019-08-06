@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - HelloWorldMain",
+            "request": "launch",
+            "mainClass": "org.gmnz.ipk.HelloWorldMain",
+            "projectName": "hackerrank-fun"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - DummyOutputGen",
             "request": "launch",
             "mainClass": "org.gmnz.prove.DummyOutputGen",
