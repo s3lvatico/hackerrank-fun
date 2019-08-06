@@ -20,19 +20,21 @@ public class ArrayManipulation2 {
 
       for (int qi = 0; qi < queries.length; qi++) {
          int[] query = queries[qi];
+
+         System.out.print("query : ");
          printArray(query);
 
          int startIdx = query[0] - 1;
 
-         System.out.println(startIdx);
+         // System.out.println(startIdx);
 
          int endIdx = query[1];
 
-         System.out.println(startIdx);
+         // System.out.println(startIdx);
 
          int k = query[2];
 
-         System.out.println(k);
+         // System.out.println(k);
 
          arr[startIdx] += k;
          if (endIdx < arr.length) {
@@ -49,7 +51,9 @@ public class ArrayManipulation2 {
          }
       }
 
-      return sum;
+      System.out.println("max value after all queries : " + max);
+
+      return max;
    }
 
    private static final Scanner scanner = new Scanner(System.in);
@@ -57,19 +61,19 @@ public class ArrayManipulation2 {
    public static void main(String[] args) throws IOException {
 
       String outFile = System.getenv("OUTPUT_PATH");
-      System.out.println("output file : " + outFile);
-      
+      // System.out.println("output file : " + outFile);
+
       BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(outFile));
 
       String[] nm = scanner.nextLine().split(" ");
 
       int n = Integer.parseInt(nm[0]);
 
-      System.out.println("n = " + n);
+      // System.out.println("n = " + n);
 
       int m = Integer.parseInt(nm[1]);
 
-      System.out.println("m = " + m);
+      // System.out.println("m = " + m);
 
       int[][] queries = new int[m][3];
 
@@ -80,7 +84,7 @@ public class ArrayManipulation2 {
          for (int j = 0; j < 3; j++) {
             int queriesItem = Integer.parseInt(queriesRowItems[j]);
             queries[i][j] = queriesItem;
-            System.out.printf("queries[%d][%d] = %d%n", i, j, queriesItem);
+            // System.out.printf("queries[%d][%d] = %d%n", i, j, queriesItem);
          }
       }
 
