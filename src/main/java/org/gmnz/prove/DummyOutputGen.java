@@ -1,8 +1,5 @@
 package org.gmnz.prove;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
 class DummyOutputGen {
 
     // private static final Logger log = LogManager.getLogger();
