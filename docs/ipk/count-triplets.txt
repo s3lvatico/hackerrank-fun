@@ -8,4 +8,24 @@ input:
 Dovrei supporre che l'array ha elementi disposti in ordine non decrescente. Così almeno si desume dagli esempi. Inoltre, nell'array possono esserci anche elementi duplicati.
 
 Prima idea: (hp array 0based), poiché la prima tripletta non può identificarsi prima dell'indice i = 2 dell'array, ha senso attraversare l'array nell'intervallo [2, l-1] e scandirlo all'indietro. 
-Non ha senso però scandirlo ogni volta fino all'inizio, perché se l'elemento a[i] appartiene a una terna, detta r la ragione della progressione, e se l'array è ordinato in senso non decrescente, i restanti elementi saranno tutti non minori di a[i]/r^2
+Non ha senso però scandirlo ogni volta fino all'inizio, perché se l'elemento a[i] appartiene a una terna, detta r la ragione della progressione, e se l'array è ordinato in senso non decrescente, i restanti elementi saranno tutti non minori di a[i]/r^2.
+
+C'è comunque il problema di gestire gli elementi duplicati che potrebbero appartenere a una terna da contare.
+
+Altro indovinello: come mi "accorgo" di aver trovato tutti e tre i componenti di una terna?
+
+Ad esempio: [1 5 25 25 125], r=5.
+
+per i=2..n-1
+   m = a[i]
+   j = i-1
+   f1 = false
+   finché a[j] >= m/(r*r)
+      if (a[j] % r != 0)
+         j--
+         continue
+      if (!f1 && a[j] == m/r)
+         // ho trovato l'ipotetico secondo elemento della terna
+         f1 = true
+      else
+         if(f1 && a[j] == m/(r*r))
