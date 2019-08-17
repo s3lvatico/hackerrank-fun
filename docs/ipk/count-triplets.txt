@@ -1,0 +1,11 @@
+dato un array (magari anche ordinato) determinare il numero di terne di indici dell'array in cui i valori si trovano in progressione geometrica di una certa ragione assegnata.
+
+input:
+- lunghezza array
+- ragione della progressione
+- array
+
+Dovrei supporre che l'array ha elementi disposti in ordine non decrescente. Così almeno si desume dagli esempi. Inoltre, nell'array possono esserci anche elementi duplicati.
+
+Prima idea: (hp array 0based), poiché la prima tripletta non può identificarsi prima dell'indice i = 2 dell'array, ha senso attraversare l'array nell'intervallo [2, l-1] e scandirlo all'indietro. 
+Non ha senso però scandirlo ogni volta fino all'inizio, perché se l'elemento a[i] appartiene a una terna, detta r la ragione della progressione, e se l'array è ordinato in senso non decrescente, i restanti elementi saranno tutti non minori di a[i]/r^2
